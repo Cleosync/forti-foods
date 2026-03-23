@@ -111,7 +111,7 @@ async function page() {
       <section id="home">
         <HeroSection heroVideoUrl={heroVideoUrl} />
       </section>
-      <OurPartners partners={partnersData} />
+      <OurPartners />
       <section id="solutions">
         <FortiSystem fortiSystemVideoUrl={fortiSystemVideoUrl} />
         <TheProblem data={problemData} />

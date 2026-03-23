@@ -33,8 +33,7 @@ const partners = [
   },
 ];
 
-function OurPartners({ partners: passedPartners }: OurPartnersProps = {}) {
-  const displayPartners = passedPartners || partners;
+function OurPartners() {
   return (
     <section className="mx-2 sm:mx-2 rounded-2xl bg-neutral-100 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-3 lg:px-8">
@@ -55,7 +54,7 @@ function OurPartners({ partners: passedPartners }: OurPartnersProps = {}) {
 
         {/* Logo grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-neutral-200 rounded-xl overflow-hidden border border-neutral-200">
-          {displayPartners.map((partner) => (
+          {partners.map((partner) => (
             <div
               key={partner.alt}
               className="flex items-center justify-center bg-white group px-6 py-8 sm:py-10 transition-colors hover:bg-white"
