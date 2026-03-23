@@ -4,40 +4,61 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PROBLEM_CARDS = [
-  {
-    id: 1,
-    number: "01",
-    title: "Infrastructure Dependency",
-    body: "Power cuts, gas leaks, and water shortages stop production cold. Traditional kitchens are only as reliable as the utilities they depend on.",
-    image:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=900&auto=format&fit=crop",
-    tag: "Utilities & Power",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Labor Volatility",
-    body: "Relying on skilled kitchen staff in remote areas is a constant gamble. High turnover and absenteeism disrupt every meal cycle.",
-    image:
-      "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=900&auto=format&fit=crop",
-    tag: "Workforce Risk",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Logistical Complexity",
-    body: "Managing fresh supply chains and cold storage is a high-cost distraction. Every link in the chain is a new point of failure.",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=900&auto=format&fit=crop",
-    tag: "Supply Chain",
-  },
-];
+const DEFAULT_PROBLEM_DATA = {
+  label: "The Problem",
+  heading: "Most Large Scale Feeding Systems Are Built on Brittleness",
+  description:
+    "Traditional food systems fail in resource-constrained environments. Here's why:",
+  cards: [
+    {
+      id: 1,
+      number: "01",
+      title: "Infrastructure Dependency",
+      body: "Power cuts, gas leaks, and water shortages stop production cold. Traditional kitchens are only as reliable as the utilities they depend on.",
+      image: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=900&auto=format&fit=crop",
+        },
+      },
+      tag: "Utilities & Power",
+    },
+    {
+      id: 2,
+      number: "02",
+      title: "Labor Volatility",
+      body: "Relying on skilled kitchen staff in remote areas is a constant gamble. High turnover and absenteeism disrupt every meal cycle.",
+      image: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=900&auto=format&fit=crop",
+        },
+      },
+      tag: "Workforce Risk",
+    },
+    {
+      id: 3,
+      number: "03",
+      title: "Logistical Complexity",
+      body: "Managing fresh supply chains and cold storage is a high-cost distraction. Every link in the chain is a new point of failure.",
+      image: {
+        asset: {
+          url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=900&auto=format&fit=crop",
+        },
+      },
+      tag: "Supply Chain",
+    },
+  ],
+};
 
-function TheProblem() {
+interface ProblemSectionProps {
+  data?: typeof DEFAULT_PROBLEM_DATA;
+}
+
+function TheProblem({ data }: ProblemSectionProps) {
+  const problemData = { ...DEFAULT_PROBLEM_DATA, ...data };
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -138,7 +159,7 @@ function TheProblem() {
             style={{ color: "rgba(18,59,61,0.45)" }}
           >
             <span className="w-5 h-px bg-current" />
-            The Problem
+            {problemData.label}
             <span className="w-5 h-px bg-current" />
           </span>
 
@@ -147,7 +168,7 @@ function TheProblem() {
             className="text-balance text-3xl sm:text-4xl lg:text-5xl font-bold leading-snug max-w-2xl"
             style={{ color: "#123B3D" }}
           >
-            Most Large Scale <br /> Feeding Systems Are Built on{" "}
+            {problemData.heading}{" "}
             <span className="relative inline-block">
               <span className="relative z-10">Fragile Infrastructure</span>
               <svg
@@ -209,16 +230,15 @@ function TheProblem() {
             className="text-sm sm:text-base max-w-md mt-2 "
             style={{ color: "rgba(18,59,61,0.55)" }}
           >
-            When responsible for thousands, the traditional kitchen is the
-            biggest point of failure.
+            {problemData.description}
           </p>
         </div>
       </div>
 
       {/* ── Problem list ── */}
       <div className="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col">
-        {PROBLEM_CARDS.map((card, i) => (
-          <div key={card.id}>
+        {problemData.cards.map((card, i) => (
+          <div key={card.id || i}>
             {/* Divider */}
             <div
               className="w-full h-px"
@@ -279,11 +299,19 @@ function TheProblem() {
                 className="sm:col-span-4 rounded-xl overflow-hidden"
                 style={{ height: "180px" }}
               >
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
+                {card.image ? (
+                  <img
+                    src={card.image.asset.url}
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-gray-400 text-sm">
+                      Image placeholder
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </div>

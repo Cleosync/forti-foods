@@ -60,3 +60,102 @@ export async function getBlogPostBySlug(slug: string) {
     return null;
   }
 }
+
+// ───────────────────────────────────────────────────────────────
+// LANDING PAGE DATA - Images, Videos, and All Content Editable
+// ───────────────────────────────────────────────────────────────
+
+export async function getLandingPageData() {
+  try {
+    const landingPageData = await sanityClient.fetch(`
+      *[_type == "landingPage"][0] {
+        title,
+        heroSection {
+          heroVideo
+        },
+        fortiSystemSection {
+          fortiSystemVideo
+        },
+        problemSection {
+          problemImage1 {
+            asset -> { url },
+            alt
+          },
+          problemImage2 {
+            asset -> { url },
+            alt
+          },
+          problemImage3 {
+            asset -> { url },
+            alt
+          }
+        },
+        solutionSection {
+          solutionImage {
+            asset -> { url },
+            alt
+          }
+        },
+        magicSection {
+          magicImage1 {
+            asset -> { url },
+            alt
+          },
+          magicImage2 {
+            asset -> { url },
+            alt
+          },
+          magicImage3 {
+            asset -> { url },
+            alt
+          }
+        },
+        useCasesSection {
+          useCaseImages[] {
+            caseId,
+            image {
+              asset -> { url },
+              alt
+            }
+          }
+        },
+        fortiBoxSection {
+          fortiBoxImage1 {
+            asset -> { url },
+            alt
+          },
+          fortiBoxImage2 {
+            asset -> { url },
+            alt
+          }
+        },
+        insightsSection {
+          insightsHeroImage {
+            asset -> { url },
+            alt
+          }
+        },
+        contactSection {
+          contactBackgroundImage {
+            asset -> { url },
+            alt
+          }
+        },
+        partnersSection {
+          partnerLogos[] {
+            partnerName,
+            logo {
+              asset -> { url },
+              alt
+            }
+          }
+        }
+      }
+    `);
+    console.log("📊 Full Sanity Document:", landingPageData);
+    return landingPageData;
+  } catch (error) {
+    console.error("Error fetching landing page data:", error);
+    return null;
+  }
+}

@@ -44,7 +44,11 @@ const STATS = [
   { value: "99.9%", label: "Uptime" },
 ];
 
-function TheSolution() {
+interface TheSolutionProps {
+  solutionImageUrl?: string;
+}
+
+function TheSolution({ solutionImageUrl }: TheSolutionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -338,13 +342,22 @@ function TheSolution() {
                     "radial-gradient(circle, rgba(186,206,50,0.12) 0%, transparent 70%)",
                 }}
               />
-              <Image
-                src={image1}
-                alt="Forti solution"
-                width={600}
-                height={600}
-                className="w-full h-auto rounded-2xl relative z-10"
-              />
+              {solutionImageUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={solutionImageUrl}
+                  alt="Forti solution"
+                  className="w-full h-auto rounded-2xl relative z-10"
+                />
+              ) : (
+                <Image
+                  src={image1}
+                  alt="Forti solution"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto rounded-2xl relative z-10"
+                />
+              )}
             </div>
           </div>
         </div>

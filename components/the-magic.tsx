@@ -10,6 +10,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface TheMagicProps {
+  magicImages?: {
+    step1?: string;
+    step2?: string;
+    step3?: string;
+  };
+}
+
 const BENEFITS = [
   {
     label: "No Artificial Coloring",
@@ -123,7 +131,7 @@ const REASONS = [
   },
 ];
 
-function TheMagic() {
+function TheMagic({ magicImages }: TheMagicProps = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -382,13 +390,33 @@ function TheMagic() {
 
                 {/* Photo */}
                 <div className="block relative shrink-0 rounded-2xl overflow-hidden w-full h-[200px] sm:w-[200px] sm:h-[260px] ">
-                  <Image
-                    src={i % 2 === 0 ? image3 : image4}
-                    alt={r.title}
-                    fill
-                    className="object-cover"
-                    style={{ filter: "saturate(0.8)" }}
-                  />
+                  {(() => {
+                    const stepImages = [
+                      magicImages?.step1 || image3,
+                      magicImages?.step2 || image4,
+                      magicImages?.step3 || image3,
+                    ];
+                    const stepImg = stepImages[i];
+                    const isUrl = typeof stepImg === "string" && stepImg.startsWith("http");
+
+                    return isUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={stepImg}
+                        alt={r.title}
+                        className="w-full h-full object-cover"
+                        style={{ filter: "saturate(0.8)" }}
+                      />
+                    ) : (
+                      <Image
+                        src={stepImg}
+                        alt={r.title}
+                        fill
+                        className="object-cover"
+                        style={{ filter: "saturate(0.8)" }}
+                      />
+                    );
+                  })()}
                   <div
                     className="absolute inset-0"
                     style={{

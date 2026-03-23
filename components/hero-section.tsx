@@ -7,8 +7,13 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Button from "./ui/button";
 import { Icon } from "@iconify/react";
+import { VideoPlayer } from "./ui/video-player";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// ── Default hero video (fallback if Sanity data not available) ──────────────
+const DEFAULT_HERO_VIDEO =
+  "https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4";
 
 // ── Stat items shown in the side card ──────────────────────────────────
 const STATS = [
@@ -17,7 +22,11 @@ const STATS = [
   { value: "99.8%", label: "Uptime reliability" },
 ];
 
-function HeroSection() {
+interface HeroSectionProps {
+  heroVideoUrl?: string;
+}
+
+function HeroSection({ heroVideoUrl = DEFAULT_HERO_VIDEO }: HeroSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -55,7 +64,11 @@ function HeroSection() {
 
       tl.to(labelRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0.1)
         .to(headlineRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.25)
-        .to(svgUnderlineRef.current, { autoAlpha: 1, scaleX: 1, duration: 0.8 }, 0.5)
+        .to(
+          svgUnderlineRef.current,
+          { autoAlpha: 1, scaleX: 1, duration: 0.8 },
+          0.5,
+        )
         .to(bodyRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0.55)
         .to(ctaRef.current, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.75);
 
@@ -279,19 +292,11 @@ function HeroSection() {
                   className="relative flex-shrink-0 overflow-hidden rounded-2xl  bg-black"
                   style={{ height: "100%" }}
                 >
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    className="w-full h-full object-cover  opacity-60"
-                  >
-                    <source
-                      src="https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                  <VideoPlayer
+                    src={heroVideoUrl}
+                    className="w-full h-full object-cover opacity-60"
+                    fallbackUrl={DEFAULT_HERO_VIDEO}
+                  />
                 </div>
 
                 {/* Stat card panel */}

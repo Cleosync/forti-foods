@@ -4,10 +4,19 @@ import React, { useState, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { VideoPlayer } from "./ui/video-player";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function FortiSystem() {
+// ── Default FortiSystem video (fallback if Sanity data not available) ──────────────
+const DEFAULT_FORTI_SYSTEM_VIDEO =
+  "https://res.cloudinary.com/dmr4fxsg4/video/upload/v1773223336/openart-video_a6d43620_1773222907444_fu9stv.mp4";
+
+interface FortiSystemProps {
+  fortiSystemVideoUrl?: string;
+}
+
+function FortiSystem({ fortiSystemVideoUrl = DEFAULT_FORTI_SYSTEM_VIDEO }: FortiSystemProps) {
   const sectionRef = useRef(null);
   const subtitleRef = useRef(null);
   const labelRef = useRef(null);
@@ -106,19 +115,11 @@ function FortiSystem() {
           className="relative w-full overflow-hidden "
         >
           <div className="w-full h-96 sm:h-[500px] lg:h-[600px] bg-neutral-300 ">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
+            <VideoPlayer
+              src={fortiSystemVideoUrl}
               className="w-full h-full object-cover"
-            >
-              <source
-                src="https://res.cloudinary.com/dmr4fxsg4/video/upload/v1773223336/openart-video_a6d43620_1773222907444_fu9stv.mp4"
-                type="video/mp4"
-              />
-            </video>
+              fallbackUrl={DEFAULT_FORTI_SYSTEM_VIDEO}
+            />
           </div>
           {/* overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/20" />

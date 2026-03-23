@@ -10,6 +10,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface FortiBoxProps {
+  fortiBoxImages?: {
+    image1?: string;
+    image2?: string;
+  };
+}
+
 const features = [
   {
     id: 1,
@@ -170,7 +177,7 @@ const features = [
   },
 ];
 
-function Fortibox() {
+function Fortibox({ fortiBoxImages }: FortiBoxProps = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -360,7 +367,21 @@ function Fortibox() {
             className="relative w-full rounded-2xl overflow-hidden "
             style={{ willChange: "transform", aspectRatio: "4/3" }}
           >
-            <Image src={image9} alt="Fortibox" fill className="object-cover" />
+            {fortiBoxImages?.image1 && fortiBoxImages.image1.startsWith("http") ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={fortiBoxImages.image1}
+                alt="Fortibox"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={fortiBoxImages?.image1 || image9}
+                alt="Fortibox"
+                fill
+                className="object-cover"
+              />
+            )}
           </div>
         </div>
 
@@ -430,12 +451,21 @@ function Fortibox() {
             className="lg:col-span-4 relative w-full rounded-2xl overflow-hidden"
             style={{ minHeight: "300px", willChange: "transform" }}
           >
-            <Image
-              src={image10}
-              alt="Fortibox contents"
-              fill
-              className="object-cover"
-            />
+            {fortiBoxImages?.image2 && fortiBoxImages.image2.startsWith("http") ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={fortiBoxImages.image2}
+                alt="Fortibox contents"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={fortiBoxImages?.image2 || image10}
+                alt="Fortibox contents"
+                fill
+                className="object-cover"
+              />
+            )}
             {/* Bottom caption */}
             <div
               className="absolute bottom-0 left-0 right-0 p-4"

@@ -67,12 +67,12 @@ function FortiContact() {
   return (
     <section className="w-full bg-white font-sans">
       {/* ── Our Reach ── */}
-      <div className="py-20 px-6 border-b border-gray-200">
+      {/* <div className="py-20 px-6 border-b border-gray-200">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left */}
+       
             <div className="flex flex-col gap-7">
-              {/* Eyebrow */}
+          
               <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-gray-400">
                 <span className="w-6 h-px bg-gray-300" />
                 Global Presence
@@ -88,7 +88,7 @@ function FortiContact() {
                 every continent.
               </p>
 
-              {/* Stats row */}
+            
               <div className="flex gap-8 pt-2">
                 {[
                   { value: "120+", label: "Countries" },
@@ -113,7 +113,6 @@ function FortiContact() {
               </div>
             </div>
 
-            {/* Right — Map */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <Card className="h-[360px] p-0 overflow-hidden w-full rounded-2xl">
                 <Map center={[-74.006, 40.7128]} zoom={11}>
@@ -123,7 +122,7 @@ function FortiContact() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* ── Contact Us ── */}
       <div className="py-20 px-6 bg-gray-50">
