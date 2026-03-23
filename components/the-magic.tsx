@@ -397,7 +397,8 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
                       magicImages?.step3 || image3,
                     ];
                     const stepImg = stepImages[i];
-                    const isUrl = typeof stepImg === "string" && stepImg.startsWith("http");
+                    const isUrl =
+                      typeof stepImg === "string" && stepImg.startsWith("http");
 
                     return isUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element

@@ -16,7 +16,9 @@ interface FortiSystemProps {
   fortiSystemVideoUrl?: string;
 }
 
-function FortiSystem({ fortiSystemVideoUrl = DEFAULT_FORTI_SYSTEM_VIDEO }: FortiSystemProps) {
+function FortiSystem({
+  fortiSystemVideoUrl = DEFAULT_FORTI_SYSTEM_VIDEO,
+}: FortiSystemProps) {
   const sectionRef = useRef(null);
   const subtitleRef = useRef(null);
   const labelRef = useRef(null);

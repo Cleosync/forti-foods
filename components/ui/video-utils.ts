@@ -1,6 +1,6 @@
 // ── Helper: Extract YouTube video ID from URL ──────────────────────────────
 export function getYouTubeVideoId(
-  url: string | null | undefined
+  url: string | null | undefined,
 ): string | null {
   if (!url) return null;
   const youtubeRegex =
@@ -10,9 +10,7 @@ export function getYouTubeVideoId(
 }
 
 // ── Helper: Extract Vimeo video ID from URL ────────────────────────────────
-export function getVimeoVideoId(
-  url: string | null | undefined
-): string | null {
+export function getVimeoVideoId(url: string | null | undefined): string | null {
   if (!url) return null;
   const vimeoRegex = /(?:vimeo\.com\/)(\d+)/;
   const match = url.match(vimeoRegex);

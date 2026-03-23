@@ -367,7 +367,8 @@ function Fortibox({ fortiBoxImages }: FortiBoxProps = {}) {
             className="relative w-full rounded-2xl overflow-hidden "
             style={{ willChange: "transform", aspectRatio: "4/3" }}
           >
-            {fortiBoxImages?.image1 && fortiBoxImages.image1.startsWith("http") ? (
+            {fortiBoxImages?.image1 &&
+            fortiBoxImages.image1.startsWith("http") ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={fortiBoxImages.image1}
@@ -451,7 +452,8 @@ function Fortibox({ fortiBoxImages }: FortiBoxProps = {}) {
             className="lg:col-span-4 relative w-full rounded-2xl overflow-hidden"
             style={{ minHeight: "300px", willChange: "transform" }}
           >
-            {fortiBoxImages?.image2 && fortiBoxImages.image2.startsWith("http") ? (
+            {fortiBoxImages?.image2 &&
+            fortiBoxImages.image2.startsWith("http") ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={fortiBoxImages.image2}
