@@ -16,14 +16,6 @@ async function page() {
   // Fetch Sanity data
   const landingPageData = await getLandingPageData();
 
-  // Debug logging
-  console.log("🎯 Full Landing Page Data:", landingPageData);
-  console.log("🎬 Hero Video URL:", landingPageData?.heroSection?.heroVideo);
-  console.log(
-    "⚙️ Forti System Video URL:",
-    landingPageData?.fortiSystemSection?.fortiSystemVideo,
-  );
-
   // Extract video URLs
   const heroVideoUrl = landingPageData?.heroSection?.heroVideo;
   const fortiSystemVideoUrl =
@@ -32,12 +24,14 @@ async function page() {
   // Build problem data with Sanity images
   const problemData = {
     label: "The Problem",
-    heading: "Most Large Scale Feeding Systems Are Built on Brittleness",
+    heading: "Most Large Scale Feeding Systems Are Built on Brittle",
     description:
       "Traditional food systems fail in resource-constrained environments. Here's why:",
     cards: [
       {
         id: 1,
+        video:
+          "https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4",
         number: "01",
         title: "Infrastructure Dependency",
         body: "Power cuts, gas leaks, and water shortages stop production cold. Traditional kitchens are only as reliable as the utilities they depend on.",
@@ -52,6 +46,8 @@ async function page() {
       },
       {
         id: 2,
+        video:
+          "https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4",
         number: "02",
         title: "Labor Volatility",
         body: "Relying on skilled kitchen staff in remote areas is a constant gamble. High turnover and absenteeism disrupt every meal cycle.",
@@ -66,6 +62,8 @@ async function page() {
       },
       {
         id: 3,
+        video:
+          "https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4",
         number: "03",
         title: "Logistical Complexity",
         body: "Managing fresh supply chains and cold storage is a high-cost distraction. Every link in the chain is a new point of failure.",
@@ -112,13 +110,13 @@ async function page() {
         <HeroSection heroVideoUrl={heroVideoUrl} />
       </section>
       <OurPartners />
+      <FortiSystem fortiSystemVideoUrl={fortiSystemVideoUrl} />
+      <TheProblem data={problemData} />
       <section id="solutions">
-        <FortiSystem fortiSystemVideoUrl={fortiSystemVideoUrl} />
-        <TheProblem data={problemData} />
-      </section>
-      <section id="how-it-works">
         <TheSolution solutionImageUrl={solutionImage} />
         <BrandedMarquee />
+      </section>
+      <section id="how-it-works">
         <TheMagic magicImages={magicImages} />
       </section>
       <section id="use-cases">
@@ -127,9 +125,9 @@ async function page() {
       <section id="forti-box">
         <Fortibox fortiBoxImages={fortiBoxImages} />
         <BrandedMarquee />
+        <PrepTime />
       </section>
       <section id="forti-insights">
-        <PrepTime />
         <FortiInsights />
       </section>
       <section id="forti-contact">

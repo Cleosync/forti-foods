@@ -17,9 +17,9 @@ const DEFAULT_HERO_VIDEO =
 
 // ── Stat items shown in the side card ──────────────────────────────────
 const STATS = [
-  { value: "500K+", label: "Meals served daily" },
-  { value: "40+", label: "Countries deployed" },
-  { value: "99.8%", label: "Uptime reliability" },
+  { value: "12 Months", label: "Shelf life (No refrigeration)" },
+  { value: "95%+", label: "User acceptance rate" },
+  { value: "0%", label: "Cooking Infrastructure" },
 ];
 
 interface HeroSectionProps {
@@ -172,7 +172,7 @@ function HeroSection({ heroVideoUrl = DEFAULT_HERO_VIDEO }: HeroSectionProps) {
 
   return (
     <section ref={sectionRef} className="w-full overflow-hidden p-2">
-      <div className="bg-light-cream/70 overflow-hidden rounded-2xl  sm:px-6 lg:px-8 relative flex flex-col items-center justify-center w-full h-full pt-28 pb-10 sm:pt-24 sm:pb-12 lg:pt-28 lg:pb-16">
+      <div className="bg-light-cream/70 overflow-hidden rounded-2xl  sm:px-6 lg:px-8 relative flex flex-col items-center justify-center w-full h-full pt-20 pb-4 sm:pt-16 sm:pb-4 lg:pt-20 lg:pb-6">
         <div className="container relative  z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center w-full">
             {/* ── Left: text ── */}
@@ -258,7 +258,7 @@ function HeroSection({ heroVideoUrl = DEFAULT_HERO_VIDEO }: HeroSectionProps) {
 
               <div
                 ref={ctaRef}
-                className="flex flex-col mt-4 lg:mt-10 sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto"
+                className="flex flex-col mt-2 lg:mt-4 sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto"
               >
                 <Link href="#forti-contact">
                   <Button className="w-full! lg:w-fit!">
@@ -357,7 +357,10 @@ function HeroSection({ heroVideoUrl = DEFAULT_HERO_VIDEO }: HeroSectionProps) {
 
                     {/* Bottom CTA link */}
                     <div ref={cardCtaRef} className="mt-1">
-                      <button className="group inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold tracking-wide uppercase text-primary/70 hover:text-primary transition-colors duration-200">
+                      <a
+                        href="#use-cases"
+                        className="group inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold tracking-wide uppercase text-primary/70 hover:text-primary transition-colors duration-200"
+                      >
                         View case studies
                         <Icon
                           icon="heroicons-solid:arrow-sm-right"
@@ -365,7 +368,7 @@ function HeroSection({ heroVideoUrl = DEFAULT_HERO_VIDEO }: HeroSectionProps) {
                           height="14"
                           className="group-hover:translate-x-0.5 transition-transform duration-200"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

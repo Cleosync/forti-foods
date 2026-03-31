@@ -10,7 +10,7 @@ const texts = [
 
 function BrandedMarquee() {
   return (
-    <div className="pb-16 sm:pb-20 md:pb-24 lg:pb-32 w-full overflow-hidden">
+    <div className="pb-4 sm:pb-6 md:pb-8 lg:pb-10 w-full overflow-hidden">
       <div className="p-2 sm:p-3 md:p-4 bg-light-cream -translate-x-1 origin-bottom-left rotate-2 flex gap-2 sm:gap-3 md:gap-4 overflow-x-auto w-[120vw] whitespace-nowrap">
         <Marquee autoFill direction="right">
           {texts.map((text, index) => (

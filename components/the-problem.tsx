@@ -4,13 +4,15 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const DEFAULT_VIDEO_URL =
+  "https://res.cloudinary.com/dmr4fxsg4/video/upload/f_auto,q_auto/openart-video_bf876030_1773220365957_eo69rr.mp4";
+
 const DEFAULT_PROBLEM_DATA = {
   label: "The Problem",
-  heading: "Most Large Scale Feeding Systems Are Built on Brittleness",
+  heading: "Most Large Scale Feeding Systems Are Built on Brittle",
   description:
     "Traditional food systems fail in resource-constrained environments. Here's why:",
   cards: [
@@ -19,11 +21,7 @@ const DEFAULT_PROBLEM_DATA = {
       number: "01",
       title: "Infrastructure Dependency",
       body: "Power cuts, gas leaks, and water shortages stop production cold. Traditional kitchens are only as reliable as the utilities they depend on.",
-      image: {
-        asset: {
-          url: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=900&auto=format&fit=crop",
-        },
-      },
+      video: DEFAULT_VIDEO_URL,
       tag: "Utilities & Power",
     },
     {
@@ -31,11 +29,7 @@ const DEFAULT_PROBLEM_DATA = {
       number: "02",
       title: "Labor Volatility",
       body: "Relying on skilled kitchen staff in remote areas is a constant gamble. High turnover and absenteeism disrupt every meal cycle.",
-      image: {
-        asset: {
-          url: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=900&auto=format&fit=crop",
-        },
-      },
+      video: DEFAULT_VIDEO_URL,
       tag: "Workforce Risk",
     },
     {
@@ -43,11 +37,7 @@ const DEFAULT_PROBLEM_DATA = {
       number: "03",
       title: "Logistical Complexity",
       body: "Managing fresh supply chains and cold storage is a high-cost distraction. Every link in the chain is a new point of failure.",
-      image: {
-        asset: {
-          url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=900&auto=format&fit=crop",
-        },
-      },
+      video: DEFAULT_VIDEO_URL,
       tag: "Supply Chain",
     },
   ],
@@ -147,12 +137,12 @@ function TheProblem({ data }: ProblemSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-20 sm:py-28"
+      className="w-full py-6 sm:py-8"
       style={{ background: "#f9f8f6" }}
     >
       {/* ── Header ── */}
       <div className="px-5 sm:px-8 max-w-5xl mx-auto">
-        <div className="flex flex-col items-center text-center gap-3 sm:gap-4 mb-16 sm:mb-20">
+        <div className="flex flex-col items-center text-center gap-3 sm:gap-4 mb-5 sm:mb-6">
           <span
             ref={labelRef}
             className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase"
@@ -250,7 +240,7 @@ function TheProblem({ data }: ProblemSectionProps) {
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}
-              className="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-10 py-10 sm:py-12 items-center"
+              className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-5 py-3 sm:py-4 items-center"
             >
               {/* Number */}
               <div className="sm:col-span-2 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0">
@@ -291,7 +281,7 @@ function TheProblem({ data }: ProblemSectionProps) {
                 </p>
               </div>
 
-              {/* Image */}
+              {/* Video */}
               <div
                 ref={(el) => {
                   imgRefs.current[i] = el;
@@ -299,16 +289,19 @@ function TheProblem({ data }: ProblemSectionProps) {
                 className="sm:col-span-4 rounded-xl overflow-hidden"
                 style={{ height: "180px" }}
               >
-                {card.image ? (
-                  <img
-                    src={card.image.asset.url}
-                    alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                {card.video ? (
+                  <video
+                    src={card.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                     <span className="text-gray-400 text-sm">
-                      Image placeholder
+                      Video placeholder
                     </span>
                   </div>
                 )}

@@ -92,14 +92,13 @@ function FortiInsights() {
   const hasMore = posts.length > 4;
 
   return (
-    <section className="w-full py-16 px-4" style={{ background: "#f9f8f6" }}>
+    <section className="w-full py-5 px-4">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900">
             Forti Insights
           </h2>
-          <div className="w-full h-px bg-gray-300 mt-6"></div>
         </div>
 
         {/* Loading State */}
@@ -120,7 +119,7 @@ function FortiInsights() {
 
             {/* View All Button */}
             {hasMore && (
-              <div className="flex justify-center mt-12">
+              <div className="flex justify-center mt-6">
                 <Link href="/blog">
                   <Button className="w-full! lg:w-fit!">
                     View All Blog Posts

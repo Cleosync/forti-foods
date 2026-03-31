@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { Icon } from "@iconify/react";
 import Button from "./ui/button";
@@ -206,12 +205,12 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
 
   return (
     <section ref={sectionRef} className="p-2 flex flex-col items-center">
-      <div className="w-full bg-primary-dark py-16 sm:py-20 rounded-2xl overflow-hidden">
+      <div className="w-full bg-primary-dark py-5 sm:py-6 rounded-2xl overflow-hidden">
         {/* ── Hero grid ── */}
         <div className="max-w-7xl mx-auto w-full px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
             {/* Left: text */}
-            <div className="flex flex-col gap-6 sm:gap-7 text-white">
+            <div className="flex flex-col gap-3 sm:gap-4 text-white">
               <span
                 ref={labelRef}
                 className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase"
@@ -299,7 +298,11 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
                   with a predictable, low-risk feeding model built for
                   organisations that can't afford failure.
                 </p>
-                <Link href="#forti-contact">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSciZNKyJc9lpI3B-uRYUO4XU_iZOQY2lgmNivJP8-c0Xc3hfg/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button variant="secondary">
                     Request a Demo
                     <Icon
@@ -308,7 +311,7 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
                       height="20"
                     />
                   </Button>
-                </Link>
+                </a>
               </div>
 
               {/* Stats row */}
@@ -363,7 +366,7 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
         </div>
 
         {/* ── Thin divider ── */}
-        <div className="max-w-7xl mx-auto w-full px-6 lg:px-8 my-16 sm:my-20">
+        <div className="max-w-7xl mx-auto w-full px-6 lg:px-8 my-5 sm:my-6">
           <div
             ref={dividerRef}
             className="w-full h-px"
@@ -404,7 +407,7 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
         {/* ── Feature cards ── */}
         <div
           ref={featuresRef}
-          className="max-w-7xl mx-auto w-full px-6 lg:px-8 mt-16 sm:mt-20  "
+          className="max-w-7xl mx-auto w-full px-6 lg:px-8 mt-5 sm:mt-6  "
         >
           <div
             className="grid grid-cols-1 lg:grid-cols-3 gap-px "
@@ -420,7 +423,7 @@ function TheSolution({ solutionImageUrl }: TheSolutionProps) {
                 ref={(el) => {
                   featureCards.current[i] = el;
                 }}
-                className="flex flex-col gap-5 p-8 sm:p-10"
+                className="flex flex-col gap-5 p-4 sm:p-5"
               >
                 {/* Replaces tag */}
                 <span

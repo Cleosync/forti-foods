@@ -76,10 +76,10 @@ function FortiSystem({
     { scope: sectionRef, dependencies: [] },
   );
   return (
-    <section ref={sectionRef} className="w-full pt-16 ">
+    <section ref={sectionRef} className="w-full pt-5 ">
       <div className="container mx-auto max-w-6xl px-4 ">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center gap-6 mb-12">
+        <div className="flex flex-col items-center justify-center gap-3 mb-4">
           {/* Label */}
           <p
             ref={labelRef}

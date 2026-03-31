@@ -35,10 +35,10 @@ const partners = [
 
 function OurPartners() {
   return (
-    <section className="mx-2 sm:mx-2 rounded-2xl bg-neutral-100 py-12 sm:py-16">
+    <section className="mx-2 sm:mx-2 rounded-2xl bg-neutral-100 py-4 sm:py-5">
       <div className="mx-auto max-w-5xl px-3 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col items-center gap-2 text-center mb-10 sm:mb-12">
+        <div className="flex flex-col items-center gap-2 text-center mb-3 sm:mb-4">
           <span
             className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase"
             style={{ color: "rgba(18,59,61,0.45)" }}
@@ -57,7 +57,7 @@ function OurPartners() {
           {partners.map((partner) => (
             <div
               key={partner.alt}
-              className="flex items-center justify-center bg-white group px-6 py-8 sm:py-10 transition-colors hover:bg-white"
+              className="flex items-center justify-center bg-white group px-6 py-3 sm:py-4 transition-colors hover:bg-white"
             >
               <img
                 src={partner.src}

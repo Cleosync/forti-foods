@@ -12,7 +12,7 @@ type NavItems = {
 const navItems: NavItems = [
   {
     name: "Home",
-    href: "/",
+    href: "#home",
     id: "home",
   },
   {
@@ -199,9 +199,14 @@ function Header() {
             />
             English
           </a>
-          <button className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:opacity-90 transition-opacity duration-200">
-            Book Demo
-          </button>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSciZNKyJc9lpI3B-uRYUO4XU_iZOQY2lgmNivJP8-c0Xc3hfg/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap hover:opacity-90 transition-opacity duration-200"
+          >
+            Schedule a Demo
+          </a>
         </div>
 
         {/* Hamburger — mobile & tablet */}
@@ -258,9 +263,14 @@ function Header() {
                 />
                 English
               </a>
-              <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity duration-200">
-                Book Demo
-              </button>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSciZNKyJc9lpI3B-uRYUO4XU_iZOQY2lgmNivJP8-c0Xc3hfg/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity duration-200"
+              >
+                Schedule a Demo
+              </a>
             </div>
           </div>
         </div>

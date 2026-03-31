@@ -282,13 +282,13 @@ function Fortibox({ fortiBoxImages }: FortiBoxProps = {}) {
   return (
     <section
       ref={sectionRef}
-      className="text-brand-text py-14 sm:py-20 w-full overflow-hidden"
+      className="text-brand-text py-4 sm:py-6 w-full overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ══════════════════════════════════════
             HERO — two-column
         ══════════════════════════════════════ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center mb-4 sm:mb-6">
           {/* Left: text */}
           <div className="flex flex-col gap-5">
             <span
@@ -389,7 +389,7 @@ function Fortibox({ fortiBoxImages }: FortiBoxProps = {}) {
         {/* ══════════════════════════════════════
             WHAT'S INSIDE
         ══════════════════════════════════════ */}
-        <div ref={insideLblRef} className="flex items-center gap-4 mb-8">
+        <div ref={insideLblRef} className="flex items-center gap-4 mb-3">
           <span
             className="text-[11px] font-bold tracking-[0.22em] uppercase"
             style={{ color: "rgba(18,59,61,0.4)" }}

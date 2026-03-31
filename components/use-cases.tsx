@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import Button from "./ui/button";
@@ -361,12 +360,12 @@ function UseCases() {
     <section
       ref={sectionRef}
       style={{ background: BRAND }}
-      className="text-white mt-0 sm:mt-28"
+      className="text-white mt-0 sm:mt-8"
     >
       {/* ══════════════════════════════════════
           HEADER
       ══════════════════════════════════════ */}
-      <div className="py-20 sm:py-28 px-5 sm:px-8 flex flex-col items-center text-center border-b border-white/10">
+      <div className="py-6 sm:py-8 px-5 sm:px-8 flex flex-col items-center text-center border-b border-white/10">
         <span
           className="inline-flex items-center gap-3 mb-6 text-[10px] sm:text-xs font-semibold tracking-widest uppercase"
           style={{ color: "rgba(255,255,255,0.38)" }}
@@ -391,15 +390,19 @@ function UseCases() {
 
         <p
           ref={paraRef}
-          className="text-sm sm:text-base lg:text-xl mt-5 sm:mt-7 max-w-lg leading-relaxed text-balance"
+          className="text-sm sm:text-base lg:text-xl mt-2 sm:mt-3 max-w-lg leading-relaxed text-balance"
           style={{ color: "rgba(255,255,255,0.48)" }}
         >
           Forti replaces kitchens, cold storage, and complex logistics with a
           predictable, low-risk feeding model.
         </p>
 
-        <div ref={btnRef} className="mt-8 sm:mt-10">
-          <Link href="#forti-contact">
+        <div ref={btnRef} className="mt-3 sm:mt-4">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSciZNKyJc9lpI3B-uRYUO4XU_iZOQY2lgmNivJP8-c0Xc3hfg/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button className="bg-brand-green! text-primary!">
               Request a Demo
               <Icon
@@ -408,7 +411,7 @@ function UseCases() {
                 height="20"
               />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -552,7 +555,7 @@ function UseCases() {
       ══════════════════════════════════════ */}
       <div
         ref={gridRef}
-        className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24"
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden border border-white/10">
           {useCases.map((item, index) => (
@@ -561,7 +564,7 @@ function UseCases() {
               ref={(el) => {
                 gridItems.current[index] = el;
               }}
-              className="flex flex-col gap-3 sm:gap-4 p-7 sm:p-9 border-b border-r border-white/10 transition-colors cursor-default"
+              className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-5 border-b border-r border-white/10 transition-colors cursor-default"
               style={{ background: "transparent" }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.background = "rgba(255,255,255,0.05)")

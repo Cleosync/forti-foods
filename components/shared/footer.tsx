@@ -38,7 +38,7 @@ const secondarySocialLinks = [
 function Footer() {
   return (
     <footer className="w-full bg-white border-t border-gray-100">
-      <div className="container mx-auto max-w-7xl px-6 py-14">
+      <div className="container mx-auto max-w-7xl px-6 py-5">
         <div className="flex flex-col items-center justify-center gap-8">
           {/* Brand */}
           <div className="flex flex-col items-center gap-1">

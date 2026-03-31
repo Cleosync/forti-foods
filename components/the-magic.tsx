@@ -225,9 +225,9 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
       className="flex flex-col items-center text-brand-text overflow-hidden"
     >
       {/* ── HEADER BLOCK ── */}
-      <div className="w-full max-w-7xl px-6 sm:px-10 pt-16 pb-10">
+      <div className="w-full max-w-7xl px-6 sm:px-10 pt-5 pb-3">
         {/* Eyebrow */}
-        <div ref={eyebrowRef} className="flex items-center gap-4 mb-5">
+        <div ref={eyebrowRef} className="flex items-center gap-4 mb-2">
           <span className="text-xs lg:text-sm font-semibold text-neutral-600 tracking-widest">
             How it works
           </span>
@@ -262,7 +262,7 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
         </h3>
 
         {/* ── BENEFITS — tight pills, directly under heading ── */}
-        <div ref={benefitsRef} className="mt-5 flex flex-wrap gap-2">
+        <div ref={benefitsRef} className="mt-2 flex flex-wrap gap-2">
           {BENEFITS.map((b, i) => (
             <div
               key={b.label}
@@ -302,7 +302,7 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
         {/* Subhead — after benefits */}
         <p
           ref={subheadRef}
-          className="mt-6 text-sm sm:text-base leading-relaxed max-w-xl"
+          className="mt-2 text-sm sm:text-base leading-relaxed max-w-xl"
           style={{ color: "rgba(18,59,61,0.55)" }}
         >
           <strong style={{ color: "#123B3D" }}>12 months on the shelf.</strong>{" "}
@@ -312,15 +312,15 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
 
         {/* Divider */}
         <div
-          className="mt-10 h-px w-full"
+          className="mt-3 h-px w-full"
           style={{ background: "rgba(18,59,61,0.08)" }}
         />
       </div>
 
       {/* ── PROCESS ── */}
       <div className="w-full" style={{ background: "rgba(18,59,61,0.015)" }}>
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 py-14 sm:py-20">
-          <div className="flex items-center gap-4 mb-12">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 py-5 sm:py-6">
+          <div className="flex items-center gap-4 mb-4">
             <span
               className="text-[11px] font-bold tracking-[0.22em] uppercase"
               style={{ color: "rgba(18,59,61,0.35)" }}
@@ -340,7 +340,7 @@ function TheMagic({ magicImages }: TheMagicProps = {}) {
                 ref={(el) => {
                   reasonsRef.current[i] = el;
                 }}
-                className={`flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 py-12 relative
+                className={`flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6 py-4 relative
                   ${i < REASONS.length - 1 ? "border-b" : ""}
                   ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
                 style={{ borderColor: "rgba(18,59,61,0.07)" }}

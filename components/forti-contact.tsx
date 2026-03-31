@@ -1,253 +1,119 @@
 "use client";
 
-import React, { useState } from "react";
-import { Icon } from "@iconify/react";
+import React from "react";
 import Button from "./ui/button";
-import { Map, MapControls } from "@/components/ui/map";
-import { Card } from "@/components/ui/card";
-
-interface ContactFeature {
-  id: number;
-  icon: string;
-  title: string;
-  description: string;
-}
-
-const contactFeatures: ContactFeature[] = [
-  {
-    id: 1,
-    icon: "mdi:video-outline",
-    title: "Feature one",
-    description:
-      "Gorgeous, high-quality video sharing on desktop, mobile, tablet",
-  },
-  {
-    id: 2,
-    icon: "mdi:moon-waning-crescent",
-    title: "Feature two",
-    description:
-      "Gorgeous, high-quality video sharing on desktop, mobile, tablet",
-  },
-  {
-    id: 3,
-    icon: "mdi:palette-outline",
-    title: "Feature three",
-    description:
-      "Gorgeous, high-quality video sharing on desktop, mobile, tablet",
-  },
-  {
-    id: 4,
-    icon: "mdi:qrcode",
-    title: "Feature four",
-    description:
-      "Gorgeous, high-quality video sharing on desktop, mobile, tablet",
-  },
-];
 
 function FortiContact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    feedback: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
+  const handleContactClick = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSfs1pHecWmLyeb9Tp0rPA2ebxityBrjVsLwzKY8ELPeUZSyDg/viewform?usp=publish-editor",
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   return (
-    <section className="w-full bg-white font-sans">
-      {/* ── Our Reach ── */}
-      {/* <div className="py-20 px-6 border-b border-gray-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-       
-            <div className="flex flex-col gap-7">
-          
-              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-gray-400">
-                <span className="w-6 h-px bg-gray-300" />
-                Global Presence
-              </span>
-
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-950 leading-[1.1]">
-                Our Reach
-              </h2>
-
-              <p className="text-base text-gray-500 leading-relaxed max-w-md">
-                Separated they live in Bookmarks right at the coast of the
-                famous Semantics, large language ocean — reaching teams across
-                every continent.
-              </p>
-
-            
-              <div className="flex gap-8 pt-2">
-                {[
-                  { value: "120+", label: "Countries" },
-                  { value: "40K", label: "Users" },
-                  { value: "99.9%", label: "Uptime" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col gap-0.5">
-                    <span className="text-2xl font-bold text-gray-950">
-                      {stat.value}
-                    </span>
-                    <span className="text-xs text-gray-400 uppercase tracking-wider">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2">
-                <Button variant="primary" size="md">
-                  Request a Demo
-                </Button>
-              </div>
-            </div>
-
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <Card className="h-[360px] p-0 overflow-hidden w-full rounded-2xl">
-                <Map center={[-74.006, 40.7128]} zoom={11}>
-                  <MapControls />
-                </Map>
-              </Card>
-            </div>
+    <section className="w-full font-sans overflow-hidden">
+      <div className="relative py-6 lg:px-6 px-4 ">
+        {/* Decorative background accents */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
+          {/* Large faint circles top-right */}
+          <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full border border-gray-200 opacity-60" />
+          <div className="absolute -top-12 -right-12 w-[320px] h-[320px] rounded-full border border-gray-200 opacity-40" />
+          {/* Dot grid bottom-left */}
+          <div className="absolute bottom-10 left-10 grid grid-cols-4 gap-2.5">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div
+                key={i}
+                className="w-1 h-1 rounded-full bg-gray-300 opacity-60"
+              />
+            ))}
           </div>
         </div>
-      </div> */}
 
-      {/* ── Contact Us ── */}
-      <div className="py-20 px-6 bg-gray-50">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-            {/* Left — Features */}
-            <div className="flex flex-col gap-10">
-              <div className="flex flex-col gap-4">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-gray-400">
-                  <span className="w-6 h-px bg-gray-300" />
-                  Get in Touch
-                </span>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-950 leading-[1.1]">
-                  Contact Us
-                </h2>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
-                  Have a question or want to see what we can do for your team?
-                  We'd love to hear from you.
-                </p>
-              </div>
+        <div className="relative ">
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <span className="w-8 h-px bg-gray-300" />
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">
+              Partner With Us
+            </span>
+            <span className="w-8 h-px bg-gray-300" />
+          </div>
 
-              {/* 2×2 Feature Grid */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10">
-                {contactFeatures.map((feature) => (
-                  <div key={feature.id} className="flex flex-col gap-3 group">
-                    {/* Icon container */}
-                    <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 shadow-sm flex items-center justify-center transition-shadow group-hover:shadow-md">
-                      <Icon
-                        icon={feature.icon}
-                        className="w-5 h-5 text-gray-800"
-                      />
-                    </div>
+          {/* Card */}
+          <div className="bg-accent  border-gray-200 rounded-3xl  px-8 py-6 sm:px-16 flex flex-col items-center text-center gap-6">
+            {/* Heading */}
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-primary leading-[1.1] max-w-xl">
+              Every great meal starts with a conversation.
+            </h2>
 
-                    <h4 className="text-sm font-semibold text-gray-900">
-                      {feature.title}
-                    </h4>
+            {/* Subtext */}
+            <p className="text-base text-gray-500 leading-relaxed max-w-lg">
+              Whether you're an NGO, a government body, a humanitarian
+              organisation, or simply believe in nourishing communities with
+              dignity — we'd love to hear from you.
+            </p>
 
-                    <p className="text-xs text-gray-500 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            {/* Divider */}
+            <div className="flex items-center gap-3 w-full max-w-xs">
+              <div className="flex-1 h-px bg-gray-100" />
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
+              <div className="flex-1 h-px bg-gray-100" />
             </div>
 
-            {/* Right — Form */}
-            <div className="flex items-start">
-              <form
-                onSubmit={handleSubmit}
-                className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm p-8 flex flex-col gap-5"
+            {/* Trust signals */}
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-gray-400">
+              {[
+                "NGOs & Aid Organisations",
+                "Government & Military",
+                "Schools & Communities",
+              ].map((label) => (
+                <span key={label} className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col items-center gap-2 pt-2">
+              <button
+                onClick={handleContactClick}
+                className="inline-flex items-center gap-2"
               >
-                {/* Name */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Jane Smith"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="jane@company.com"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
-                  />
-                </div>
-
-                {/* Company */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Acme Inc."
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
-                  />
-                </div>
-
-                {/* Feedback */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Message
-                  </label>
-                  <textarea
-                    name="feedback"
-                    placeholder="Tell us what's on your mind…"
-                    value={formData.feedback}
-                    onChange={handleInputChange}
-                    rows={5}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all resize-none"
-                  />
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-gray-100" />
-
-                {/* Submit */}
-                <Button variant="primary" size="md" fullWidth>
-                  Send Message
+                <Button>
+                  Contact Us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
                 </Button>
-
-                <p className="text-center text-xs text-gray-400">
-                  We'll get back to you within 1 business day.
-                </p>
-              </form>
+              </button>
             </div>
           </div>
+
+          {/* Email fallback */}
+          <p className="mt-3 text-center text-xs text-gray-400 leading-relaxed">
+            Prefer email? Reach us at{" "}
+            <a
+              href="mailto:info@forti-foods.com"
+              className="text-gray-600 underline underline-offset-2 hover:text-gray-900 transition-colors"
+            >
+              info@forti-foods.com
+            </a>
+          </p>
         </div>
       </div>
     </section>
